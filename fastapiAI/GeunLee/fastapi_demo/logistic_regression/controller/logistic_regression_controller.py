@@ -53,7 +53,7 @@ def logistic_regression_test():
     # 정확도가 어느정도인지 판별
     accuracy = accuracy_score(y_test, y_pred)
     # y = ax + b라 가정 했을 때 coef_ 는 a를 의미함
-    coef = model.codef_
+    coef = model.coef_
     # y = ax + b에서 intercpet_는 b를 의미함
     intercept = model.intercept_
 
@@ -80,7 +80,7 @@ def logistic_regression_test():
     return JSONResponse(content={
         "accuracy": accuracy,
         "coefficients": coef.tolist(),
-        "intercept": intercept.tools(),
+        "intercept": intercept.tolist(),
         "data_point": {
             "X": X.tolist(),
             "y": y.tolist()
