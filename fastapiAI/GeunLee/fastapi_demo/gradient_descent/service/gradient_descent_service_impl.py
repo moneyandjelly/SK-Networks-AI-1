@@ -1,7 +1,7 @@
-import numpy as np
-
 from gradient_descent.repository.gradient_descent_repository_impl import GradientDescentRepositoryImpl
 from gradient_descent.service.gradient_descent_service import GradientDescentService
+
+import numpy as np
 
 
 class GradientDescentServiceImpl(GradientDescentService):

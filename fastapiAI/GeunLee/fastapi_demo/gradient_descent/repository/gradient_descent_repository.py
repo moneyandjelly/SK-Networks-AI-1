@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
-import tensorflow as tf
-class GradientDescentRepository(ABC):
 
+
+class GradientDescentRepository(ABC):
     @abstractmethod
     def createTrainData(self):
         pass
@@ -13,4 +13,3 @@ class GradientDescentRepository(ABC):
     @abstractmethod
     def trainModel(self, selectedModel, X, y):
         pass
-

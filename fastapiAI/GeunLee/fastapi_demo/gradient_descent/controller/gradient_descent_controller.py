@@ -41,3 +41,4 @@ async def gradientDescentPredict(request: PredictRequest):
     # predictions = model(X_new).numpy().tolist()
     #
     # return {"predictions": predictions}
+
