@@ -45,11 +45,7 @@ class GradientDescentRepositoryImpl(GradientDescentRepository):
                 # 여기서 손실이 최소가 되는 것을 찾는 것임 (변화율 최소)
                 loss = await self.calcMeanSquaredError(y_tensor, y_prediction)
 
-            print(f"loss: {loss}")
-            print(f"weight: {selectedModel.weight}")
-            print(f"intercept: {selectedModel.intercept}")
             gradients = tape.gradient(loss, [selectedModel.weight, selectedModel.intercept])
-            print(f"gradients: {gradients}")
 
             selectedModel.weight.assign_sub(gradients[0] * learningRate)
             selectedModel.intercept.assign_sub(gradients[1] * learningRate)
@@ -59,5 +55,17 @@ class GradientDescentRepositoryImpl(GradientDescentRepository):
 
         return selectedModel
 
+    async def loadModel(self, wantToBeLoadModel):
+        model = LinearRegressionModel()
+
+        data = np.load(wantToBeLoadModel)
+
+        model.weight.assign(data['weight'])
+        model.intercept.assign(data['intercept'])
+
+        return model
+
+    async def predict(self, loadedModel, tensor):
+        return loadedModel(tensor).numpy().tolist()
 
 
