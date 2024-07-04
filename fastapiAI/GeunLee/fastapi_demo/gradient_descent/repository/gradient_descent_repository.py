@@ -15,7 +15,7 @@ class GradientDescentRepository(ABC):
         pass
 
     @abstractmethod
-    def loadModel(self, wantToBeLoad):
+    def loadModel(self, wantToBeLoadModel):
         pass
 
     @abstractmethod

@@ -36,8 +36,6 @@ class GradientDescentRepositoryImpl(GradientDescentRepository):
         X_tensor = tf.constant(X, dtype=tf.float32)
         y_tensor = tf.constant(y, dtype=tf.float32)
 
-        print(f"selectedModel: {selectedModel}")
-
         for epoch in range(numEpoches):
             with tf.GradientTape() as tape:
                 y_prediction = selectedModel(X_tensor)
@@ -55,7 +53,7 @@ class GradientDescentRepositoryImpl(GradientDescentRepository):
 
         return selectedModel
 
-    async def loadModel(self, wantToBeLoadModel):
+    def loadModel(self, wantToBeLoadModel):
         model = LinearRegressionModel()
 
         data = np.load(wantToBeLoadModel)
@@ -65,7 +63,5 @@ class GradientDescentRepositoryImpl(GradientDescentRepository):
 
         return model
 
-    async def predict(self, loadedModel, tensor):
+    def predict(self, loadedModel, tensor):
         return loadedModel(tensor).numpy().tolist()
-
-
