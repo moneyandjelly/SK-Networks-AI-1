@@ -23,7 +23,7 @@ export default {
         const fetchExponentialRegressionData = async () => {
             try {
                 const response = await axiosInstance.fastapiAxiosInst.get('/exponential-regression')
-                // const response = await fetch('http://192.168.0.18:33333/exponential-regression')
+                // const response = await fetch('http://192.168.0.30:33333/exponential-regression')
                 // const data = await response.json()
                 console.log('response:', response.data)
 
